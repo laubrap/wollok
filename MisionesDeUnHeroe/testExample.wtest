@@ -1,9 +1,31 @@
-import example.pepita
+import example.*
 
-describe "group of tests for pepita" {
-
-  test "pepita has initial energy" {
-    assert.equals(100, pepita.energy())
+//Es posible tener más de un describe por archivo, aunque si pertenecen a 
+//unidades diferentes (ej: aves, entrenadores) es conveniente definirlo en archivos diferentes.
+describe "tests Shrek" {
+  test "shrek tiene 0 misiones al comienzo" {
+    assert.equals(0, shrek.cantidadDeMisiones())
+  }
+  test "shrek tiene 0 misiones dificiles al comienzo" {
+    assert.equals(#{}, shrek.misionesDificiles())
+  }
+  test "shrek tiene 0 puntos de recompensa al comienzo" {
+    assert.equals(0, shrek.totalPuntosDeRecompensa())
+  }
+  test "a shrek se le agregan 2 misiones => tiene 2 misiones" {
+    shrek.agregarMision(liberarAFiona)
+    shrek.agregarMision(buscarPiedraFilosofal)
+    assert.equals(2, shrek.cantidadDeMisiones())
+  }
+  test "a shrek se le agregan 2 misiones, una es dificil => tiene 1 mision dificil" {
+    shrek.agregarMision(liberarAFiona)
+    shrek.agregarMision(buscarPiedraFilosofal)
+    assert.equals(#{liberarAFiona}, shrek.misionesDificiles())
+  }
+    test "a shrek se le agregan 2 misiones, sus puntos de recompensa son 13 (2*8 + 5)" {
+    shrek.agregarMision(liberarAFiona)
+    shrek.agregarMision(buscarPiedraFilosofal)
+    assert.equals(13, shrek.totalPuntosDeRecompensa())
   }
 
 }
