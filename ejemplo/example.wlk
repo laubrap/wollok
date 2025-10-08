@@ -29,7 +29,7 @@ object juan {
 }
 
 object ramiro {
-
+  
   var property horasDormidas=0 
   
   method estaDeBuenHumor() = horasDormidas >= 8
